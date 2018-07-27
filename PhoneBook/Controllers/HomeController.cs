@@ -8,12 +8,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace PhoneBook.Controllers
 {
-    public class HomeController : Controller
-    {
-        // GET: /<controller>/
-        public IActionResult Index()
-        {
-            return Redirect("/Person/index");
-        }
-    }
+	public class HomeController : Controller
+	{
+		// GET: /<controller>/
+		public IActionResult Index()
+		{
+			return Redirect("/Person/index");
+		}
+	}
 }
