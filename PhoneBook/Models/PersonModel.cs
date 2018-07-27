@@ -8,15 +8,26 @@ namespace PhoneBook.Models
 {
     public class PersonModel
     {
-		public PersonModel(int iD, string firstName, string lastName, string phone, string email)
+		/// <summary>
+		/// General Constructor
+		/// </summary>
+		/// <param name="iD"></param>
+		/// <param name="firstName"></param>
+		/// <param name="lastName"></param>
+		/// <param name="phone"></param>
+		/// <param name="email"></param>
+		/// <param name="created"></param>
+		/// <param name="updated"></param>
+
+		public PersonModel(int iD, string firstName, string lastName, string phone, string email, DateTime created, DateTime? updated)
 		{
 			ID = iD;
 			FirstName = firstName;
 			LastName = lastName;
 			Phone = phone;
 			Email = email;
-			Created = DateTime.Now;
-			Updated = DateTime.Now;
+			Created = created;
+			Updated = updated;
 		}
 
 	    public PersonModel()
@@ -44,7 +55,7 @@ namespace PhoneBook.Models
         [EmailAddress]
         public string Email { get; set; }
 
-        public DateTime? Created { get; set; }
+        public DateTime Created { get; set; }
 
         public DateTime? Updated { get; set; }
 

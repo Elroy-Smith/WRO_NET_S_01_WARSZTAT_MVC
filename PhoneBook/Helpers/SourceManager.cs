@@ -77,10 +77,33 @@ namespace PhoneBook.Models
 			//todo
 		}
 
-		//public static List<PersonModel> Get(int start, int take)
-		//{
-			
-		//}
+		public static List<PersonModel> Get(int start, int take)
+		{
+			var personList = new List<PersonModel>();
+
+			using (var connection = SqlHelper.GetConnection())
+			{
+				var sqlCommand = new SqlCommand();
+				sqlCommand.Connection = connection;
+				sqlCommand.CommandText = "select * from people;";
+
+				var data = sqlCommand.ExecuteReader();
+
+				while (data.HasRows && data.Read())
+				{
+					personList.Add(new PersonModel((int) data["ID"], 
+					data["FirstName"].ToString(), 
+					data["LastName"].ToString(),
+					data["Phone"].ToString(),
+					data["Email"].ToString(),
+					(DateTime) data["Created"],
+					null //(DateTime?) data["Updated"]
+					));
+				}
+			}
+
+			return personList;
+		}
 	}
 
 	
