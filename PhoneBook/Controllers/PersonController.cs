@@ -12,10 +12,10 @@ namespace PhoneBook.Controllers
     public class PersonController : Controller
     {
         // GET: /<controller>/
-        public IActionResult Index()
+        public IActionResult Index(int id = 1)
         {
 			//TODO Stworzyć formularz wyszukiwarkę osoby i przerzucić wyświetlenie osób na osobny widok
-            return View(SourceManager.Get(0, 10));
+            return View(SourceManager.Get(id, 3));
         }
 		[HttpGet]
 		public IActionResult Add()
