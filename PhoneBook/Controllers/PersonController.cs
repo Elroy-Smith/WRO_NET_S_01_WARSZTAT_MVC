@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using PhoneBook.Models;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -15,5 +16,21 @@ namespace PhoneBook.Controllers
         {
             return View();
         }
-    }
+		[HttpGet]
+		public IActionResult Add()
+		{
+			return View();
+		}
+
+		[HttpPost]
+	    public IActionResult Add(PersonModel personModel)
+	    {
+			if(ModelState.IsValid)
+			{
+				SourceManager.Add(personModel);
+				return Content("Dodano");
+			}
+				return View(personModel);
+	    }
+	}
 }

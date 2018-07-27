@@ -10,7 +10,7 @@ namespace PhoneBook.Models
 {
 	public class SourceManager
 	{
-		public int Add(PersonModel personModel)
+		public static int Add(PersonModel personModel)
 		{
 			using (var connection = SqlHelper.GetConnection())
 			{
@@ -56,6 +56,7 @@ namespace PhoneBook.Models
 
 			}
 		}
+
 
 	}
 
