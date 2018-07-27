@@ -8,7 +8,23 @@ namespace PhoneBook.Models
 {
     public class PersonModel
     {
-        [Required]
+		public PersonModel(int iD, string firstName, string lastName, string phone, string email)
+		{
+			ID = iD;
+			FirstName = firstName;
+			LastName = lastName;
+			Phone = phone;
+			Email = email;
+			Created = DateTime.Now;
+		}
+
+	    public PersonModel()
+	    {
+			Created = DateTime.Now;
+		}
+
+
+		[Required]
         public int ID { get; set; }
 
         [Required]
@@ -29,6 +45,8 @@ namespace PhoneBook.Models
         public DateTime? Created { get; set; }
 
         public DateTime? Updated { get; set; }
+
+	    
 
     }
 }
