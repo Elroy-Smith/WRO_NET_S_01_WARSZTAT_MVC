@@ -14,7 +14,7 @@ namespace PhoneBook.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            return View();
+            return View(SourceManager.Get(0, 10));
         }
 		[HttpGet]
 		public IActionResult Add()
