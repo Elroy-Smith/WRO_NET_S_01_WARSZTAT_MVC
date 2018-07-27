@@ -14,6 +14,7 @@ namespace PhoneBook.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
+			//TODO Stworzyć formularz wyszukiwarkę osoby i przerzucić wyświetlenie osób na osobny widok
             return View(SourceManager.Get(0, 10));
         }
 		[HttpGet]
@@ -34,4 +35,9 @@ namespace PhoneBook.Controllers
 				return View(personModel);
 	    }
 	}
+
+	//TODO Remove i do tego View Remove
+	//TODO Edit - i do tego View Edit
+	//TODO slajd 11 zmiana routingu
+	
 }
