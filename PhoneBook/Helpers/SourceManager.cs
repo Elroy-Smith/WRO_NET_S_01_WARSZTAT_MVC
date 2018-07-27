@@ -97,7 +97,7 @@ namespace PhoneBook.Models
 					data["Phone"].ToString(),
 					data["Email"].ToString(),
 					(DateTime) data["Created"],
-					null //(DateTime?) data["Updated"]
+					(DateTime?) data["Updated"]
 					));
 				}
 			}
