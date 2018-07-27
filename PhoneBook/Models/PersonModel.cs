@@ -16,11 +16,13 @@ namespace PhoneBook.Models
 			Phone = phone;
 			Email = email;
 			Created = DateTime.Now;
+			Updated = DateTime.Now;
 		}
 
 	    public PersonModel()
 	    {
 			Created = DateTime.Now;
+			Updated = DateTime.Now;
 		}
 
 

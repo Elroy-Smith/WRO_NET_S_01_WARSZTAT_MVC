@@ -27,8 +27,9 @@ namespace PhoneBook.Controllers
 	    {
 			if(ModelState.IsValid)
 			{
-				SourceManager.Add(personModel);
-				return Content("Dodano");
+				
+				var id = SourceManager.Add(personModel);
+				return Content("Dodano " + id);
 			}
 				return View(personModel);
 	    }
