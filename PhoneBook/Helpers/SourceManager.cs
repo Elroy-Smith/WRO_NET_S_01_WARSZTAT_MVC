@@ -52,12 +52,35 @@ namespace PhoneBook.Models
 					ParameterName = "@Created"
 				};
 
+				var sqlUpdatedDateParam = new SqlParameter
+				{
+					DbType = System.Data.DbType.DateTime,
+					Value = personModel.Updated,
+					ParameterName = "@Updated"
+				};
+
+				sqlCommand.Parameters.Add(sqlFirstNameParam);
+				sqlCommand.Parameters.Add(sqlLastNameParam);
+				sqlCommand.Parameters.Add(sqlPhoneParam);
+				sqlCommand.Parameters.Add(sqlEmailParam);
+				sqlCommand.Parameters.Add(sqlCreatedDateParam);
+				sqlCommand.Parameters.Add(sqlUpdatedDateParam);
+				
+
 				return (int)sqlCommand.ExecuteScalar();
 
 			}
 		}
 
+		public static void Update(PersonModel personModel)
+		{
+			//todo
+		}
 
+		//public static List<PersonModel> Get(int start, int take)
+		//{
+			
+		//}
 	}
 
 	
