@@ -85,9 +85,25 @@ namespace PhoneBook.Models
 			{
 				var sqlCommand = new SqlCommand();
 				sqlCommand.Connection = connection;
-				sqlCommand.CommandText = "select * from people;";
+				sqlCommand.CommandText = "SELECT * FROM People ORDER BY ID OFFSET @Start ROWS FETCH NEXT @Take ROWS ONLY;";
 
-				var data = sqlCommand.ExecuteReader();
+			    var sqlStartParam = new SqlParameter
+			    {
+			        DbType = System.Data.DbType.Int32,
+			        Value = (start - 1) * take,
+			        ParameterName = "@Start"
+			    };
+
+			    var sqlTakeParam = new SqlParameter
+			    {
+			        DbType = System.Data.DbType.Int32,
+			        Value = take,
+			        ParameterName = "@Take"
+			    };
+                sqlCommand.Parameters.Add(sqlStartParam);
+			    sqlCommand.Parameters.Add(sqlTakeParam);
+
+                var data = sqlCommand.ExecuteReader();
 
 				while (data.HasRows && data.Read())
 				{
